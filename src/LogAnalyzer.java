@@ -8,16 +8,25 @@ public class LogAnalyzer {
       if (args[i].equals("--file")) {
         if (i + 1 < args.length) {
           logfile = args[i + 1];
-          System.out.println(logfile);
           i++;
         }
-      }
-      if (args[i].equals("--print-all")) {
+      } else if (args[i].equals("--print-all")) {
         try (BufferedReader reader = new BufferedReader(new FileReader(logfile))) {
           String line;
           while ((line = reader.readLine()) != null) {
             System.out.println(line); 
           }
+        }
+      } else if (args[i].equals("--advancements")) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(logfile))) {
+          String line;
+          int counter = 0;
+          while ((line = reader.readLine()) != null) {
+            if (line.contains("has made the advancement")) {
+              counter++;
+            }
+          }
+          System.out.println("There has been a total of " + counter + " advancements made!");
         }
       }
     }
