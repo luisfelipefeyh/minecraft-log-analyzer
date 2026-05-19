@@ -21,5 +21,5 @@ javac src/LogAnalyzer.java -d out
 2) Then run it:
 
 ```
-java -cp out LogAnalyzer` `FLAGS GO HERE
+java -cp out LogAnalyzer "FLAGS GO HERE"
 ```
